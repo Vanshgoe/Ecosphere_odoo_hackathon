@@ -87,6 +87,13 @@ export default function Reports({ view }: { view: ReportView }) {
               Consolidated view of all ESG scores and operational metrics.
             </p>
           </div>
+          <button
+            className="button button-primary btn-sm"
+            onClick={() => window.print()}
+            style={{ alignSelf: 'flex-start' }}
+          >
+            🖨 Print Report
+          </button>
         </div>
 
         <div className="kpi-grid report-kpis">

@@ -308,6 +308,172 @@ const configs: Record<string, ResourceScreenConfig> = {
       { key: 'active', label: 'Active', kind: 'boolean' },
     ],
   },
+
+  'emission-factors': {
+    title: 'Emission Factors',
+    module: 'Environmental',
+    resource: 'emission-factors',
+    description:
+      'Company-specific emission factors used to calculate carbon footprints from operational activity data.',
+    fields: [
+      { key: 'name', label: 'Factor name', kind: 'text', required: true },
+      { key: 'code', label: 'Code', kind: 'text', required: true },
+      { key: 'source_type', label: 'Source type', kind: 'text', required: true },
+      { key: 'activity_unit', label: 'Activity unit', kind: 'text', required: true },
+      { key: 'emission_unit', label: 'Emission unit', kind: 'text' },
+      { key: 'factor_value', label: 'Factor value', kind: 'number', required: true },
+      {
+        key: 'scope',
+        label: 'Scope',
+        kind: 'select',
+        required: true,
+        options: states([
+          ['scope_1', 'Scope 1 — Direct'],
+          ['scope_2', 'Scope 2 — Indirect (Energy)'],
+          ['scope_3', 'Scope 3 — Indirect (Value chain)'],
+        ]),
+      },
+      { key: 'effective_from', label: 'Effective from', kind: 'date' },
+      { key: 'effective_to', label: 'Effective to', kind: 'date' },
+      { key: 'active', label: 'Active', kind: 'boolean' },
+    ],
+  },
+
+  'product-profiles': {
+    title: 'Product ESG Profiles',
+    module: 'Environmental',
+    resource: 'product-profiles',
+    description:
+      'Sustainability ratings and carbon intensity data for product templates.',
+    fields: [
+      m2oId('product_tmpl_id', true),
+      { key: 'carbon_intensity', label: 'Carbon intensity', kind: 'number' },
+      {
+        key: 'recycled_content_percentage',
+        label: 'Recycled content %',
+        kind: 'number',
+      },
+      {
+        key: 'sustainability_rating',
+        label: 'Rating',
+        kind: 'select',
+        options: states([
+          ['a', 'A — Excellent'],
+          ['b', 'B — Good'],
+          ['c', 'C — Fair'],
+          ['d', 'D — Poor'],
+        ]),
+      },
+    ],
+  },
+
+  categories: {
+    title: 'ESG Categories',
+    module: 'Settings',
+    resource: 'categories',
+    description: 'Environmental, Social, and Governance category definitions.',
+    fields: [
+      { key: 'name', label: 'Category name', kind: 'text', required: true },
+      {
+        key: 'code',
+        label: 'Pillar',
+        kind: 'select',
+        required: true,
+        options: states([
+          ['E', 'Environmental'],
+          ['S', 'Social'],
+          ['G', 'Governance'],
+        ]),
+      },
+      { key: 'sequence', label: 'Sequence', kind: 'number' },
+      { key: 'active', label: 'Active', kind: 'boolean' },
+    ],
+  },
+
+  badges: {
+    title: 'Badges',
+    module: 'Gamification',
+    resource: 'badges',
+    description:
+      'Badges that employees can unlock through XP accumulation or CSR hours.',
+    fields: [
+      { key: 'name', label: 'Badge name', kind: 'text', required: true },
+      { key: 'required_xp', label: 'Required XP', kind: 'number' },
+      {
+        key: 'unlock_rule',
+        label: 'Unlock rule',
+        kind: 'select',
+        required: true,
+        options: states([
+          ['xp', 'XP total'],
+          ['csr_hours', 'CSR hours'],
+        ]),
+      },
+      { key: 'unlock_value', label: 'Unlock threshold', kind: 'number' },
+    ],
+  },
+
+  'challenge-participation': {
+    title: 'Challenge Participation',
+    module: 'Gamification',
+    resource: 'challenge-participation',
+    description:
+      'Employee participation records for gamification challenges.',
+    statusField: 'state',
+    fields: [
+      m2oId('challenge_id', true),
+      m2oId('employee_id', true),
+      {
+        key: 'state',
+        label: 'Status',
+        kind: 'select',
+        options: states([
+          ['joined', 'Joined'],
+          ['completed', 'Completed'],
+        ]),
+      },
+    ],
+  },
+
+  'csr-participation': {
+    title: 'Employee Participation',
+    module: 'Social',
+    resource: 'csr-participation',
+    description:
+      'Employee participation in CSR activities with volunteer hour tracking and approval.',
+    statusField: 'participation_status',
+    fields: [
+      m2oId('activity_id', true),
+      m2oId('employee_id', true),
+      {
+        key: 'participation_status',
+        label: 'Status',
+        kind: 'select',
+        options: states([
+          ['registered', 'Registered'],
+          ['attended', 'Attended'],
+          ['cancelled', 'Cancelled'],
+        ]),
+      },
+      { key: 'volunteer_hours', label: 'Volunteer hours', kind: 'number' },
+      { key: 'approved', label: 'Approved', kind: 'boolean', readOnly: true },
+      m2oId('approved_by'),
+    ],
+  },
+
+  acknowledgements: {
+    title: 'Policy Acknowledgements',
+    module: 'Governance',
+    resource: 'acknowledgements',
+    description:
+      'Employee acknowledgements of published governance policies.',
+    fields: [
+      m2oId('policy_id', true),
+      m2oId('employee_id', true),
+      { key: 'acknowledged', label: 'Acknowledged', kind: 'boolean', readOnly: true },
+      { key: 'acknowledgement_date', label: 'Acknowledged on', kind: 'date', readOnly: true },
+    ],
+  },
 };
 
 /* ─── Component ─── */

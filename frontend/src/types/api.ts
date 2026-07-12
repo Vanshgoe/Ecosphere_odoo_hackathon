@@ -74,7 +74,14 @@ export type ResourceName =
   | 'risks'
   | 'audits'
   | 'challenges'
-  | 'rewards';
+  | 'rewards'
+  | 'emission-factors'
+  | 'product-profiles'
+  | 'categories'
+  | 'badges'
+  | 'challenge-participation'
+  | 'csr-participation'
+  | 'acknowledgements';
 
 /* ─── List request params ─── */
 export interface ListParams {

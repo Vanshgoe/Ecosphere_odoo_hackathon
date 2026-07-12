@@ -1257,3 +1257,26 @@ code {
   font-size: 12px;
   color: var(--info);
 }
+
+/* ─── Print styles ─── */
+@media print {
+  .sidebar, .overlay, .module-tabs, .menu-button, .account,
+  .toast-container, .modal-backdrop,
+  button:not(.no-hide-print) { display: none !important; }
+
+  main { margin: 0 !important; padding: 0 !important; }
+  .header { background: transparent !important; border: none !important; }
+  .header h1 { color: #000 !important; }
+  .header .eyebrow { color: #444 !important; }
+  .page { padding: 0 !important; }
+
+  :root {
+    --bg: #fff; --surface: #f8f8f8; --surface-2: #f0f0f0;
+    --surface-3: #e8e8e8; --border: #ccc; --border-light: #ddd;
+    --text: #111; --text-secondary: #333; --muted: #666;
+  }
+  body, .app-shell { background: #fff !important; color: #111 !important; }
+  .card { border-color: #ccc !important; background: #fafafa !important; }
+  .card-title, .page-heading h2, strong { color: #111 !important; }
+  .page-description, .eyebrow, .kpi-caption, span { color: #333 !important; }
+}

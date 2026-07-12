@@ -24,6 +24,13 @@ class EcoSphereAPI(http.Controller):
         'audits': ('ecosphere.esg.audit', ('name', 'company_id', 'audit_type', 'auditor', 'start_date', 'end_date', 'findings', 'score', 'state'), 'start_date'),
         'challenges': ('ecosphere.challenge', ('name', 'company_id', 'description', 'xp_reward', 'start_date', 'end_date', 'state'), 'start_date'),
         'rewards': ('ecosphere.reward', ('name', 'xp_cost', 'active', 'company_id'), None),
+        'emission-factors': ('ecosphere.emission.factor', ('name', 'code', 'source_type', 'activity_unit', 'emission_unit', 'factor_value', 'scope', 'effective_from', 'effective_to', 'active', 'company_id'), 'effective_from'),
+        'product-profiles': ('ecosphere.product.esg.profile', ('product_tmpl_id', 'carbon_intensity', 'recycled_content_percentage', 'sustainability_rating', 'company_id'), None),
+        'categories': ('ecosphere.esg.category', ('name', 'code', 'sequence', 'active', 'company_id'), None),
+        'badges': ('ecosphere.badge', ('name', 'required_xp', 'company_id', 'unlock_rule', 'unlock_value'), None),
+        'challenge-participation': ('ecosphere.challenge.participation', ('challenge_id', 'employee_id', 'state'), None),
+        'csr-participation': ('ecosphere.csr.participation', ('activity_id', 'employee_id', 'company_id', 'participation_status', 'volunteer_hours', 'approved', 'approved_by'), None),
+        'acknowledgements': ('ecosphere.policy.acknowledgement', ('policy_id', 'employee_id', 'company_id', 'acknowledged', 'acknowledgement_date'), None),
     }
 
     def _ok(self, data, pagination=None):
@@ -115,16 +122,19 @@ class EcoSphereAPI(http.Controller):
         values = payload.get('values', payload.get('data'))
         if not isinstance(values, dict):
             raise UserError('values must be an object.')
-        writable = set(exposed) - {'progress_percentage', 'emissions_kg_co2e', 'scope', 'risk_score', 'approved_by', 'approval_date', 'resolution_date'}
+        writable = set(exposed) - {'progress_percentage', 'emissions_kg_co2e', 'scope', 'risk_score', 'approved_by', 'approval_date', 'resolution_date', 'acknowledged', 'acknowledgement_date'}
         unknown = set(values) - writable
         if unknown:
             raise UserError('Unsupported field(s): %s.' % ', '.join(sorted(unknown)))
         result = dict(values)
-        if 'company_id' in result:
+        has_company = 'company_id' in request.env[model]._fields
+        if 'company_id' in result and has_company:
             company = self._company(result['company_id'])
             result['company_id'] = company.id
-        elif creating:
+        elif creating and has_company:
             result['company_id'] = self._company(payload.get('company_id')).id
+        elif 'company_id' in result and not has_company:
+            del result['company_id']
         for field_name, value in list(result.items()):
             field = request.env[model]._fields[field_name]
             if field.type == 'date':

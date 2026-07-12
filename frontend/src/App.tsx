@@ -17,23 +17,11 @@ export default function App() {
         {/* ─── Environmental ─── */}
         <Route
           path="/environmental/emission-factors"
-          element={
-            <Unavailable
-              module="Environmental"
-              title="Emission Factors"
-              detail="Emission factor records are managed in the Odoo backend. The frontend API does not expose a CRUD route for this model."
-            />
-          }
+          element={<Resources screen="emission-factors" />}
         />
         <Route
           path="/environmental/product-profiles"
-          element={
-            <Unavailable
-              module="Environmental"
-              title="Product ESG Profiles"
-              detail="Product ESG profile records are managed in the Odoo backend. The frontend API does not expose a CRUD route for this model."
-            />
-          }
+          element={<Resources screen="product-profiles" />}
         />
         <Route
           path="/environmental/carbon"
@@ -48,13 +36,7 @@ export default function App() {
         <Route path="/social/csr" element={<Resources screen="csr" />} />
         <Route
           path="/social/participation"
-          element={
-            <Unavailable
-              module="Social"
-              title="Employee Participation"
-              detail="Participation records and approval actions are not exposed by the frontend API. Manage via the Odoo backend."
-            />
-          }
+          element={<Resources screen="csr-participation" />}
         />
         <Route
           path="/social/diversity"
@@ -74,13 +56,7 @@ export default function App() {
         />
         <Route
           path="/governance/acknowledgements"
-          element={
-            <Unavailable
-              module="Governance"
-              title="Policy Acknowledgements"
-              detail="Acknowledgement records and actions are not exposed by the frontend API. Manage via the Odoo backend."
-            />
-          }
+          element={<Resources screen="acknowledgements" />}
         />
         <Route
           path="/governance/audits"
@@ -102,23 +78,11 @@ export default function App() {
         />
         <Route
           path="/gamification/participation"
-          element={
-            <Unavailable
-              module="Gamification"
-              title="Challenge Participation"
-              detail="Participation records and join/completion actions are not exposed by the frontend API."
-            />
-          }
+          element={<Resources screen="challenge-participation" />}
         />
         <Route
           path="/gamification/badges"
-          element={
-            <Unavailable
-              module="Gamification"
-              title="Badges"
-              detail="Badge records and award data are not exposed by the frontend API. Manage via the Odoo backend."
-            />
-          }
+          element={<Resources screen="badges" />}
         />
         <Route
           path="/gamification/rewards"
@@ -158,7 +122,7 @@ export default function App() {
         />
         <Route
           path="/settings/categories"
-          element={<Settings view="categories" />}
+          element={<Resources screen="categories" />}
         />
         <Route
           path="/settings/configuration"
