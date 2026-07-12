@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cat,cat,model_ecosphere_esg_category,ecosphere_core.group_user,1,0,0,0
+access_metric,metric,model_ecosphere_esg_metric,ecosphere_core.group_manager,1,1,1,1
+access_config,config,model_ecosphere_scoring_config,ecosphere_core.group_manager,1,1,1,1
+access_score,score,model_ecosphere_esg_score,ecosphere_core.group_user,1,0,0,0
+access_snap,snap,model_ecosphere_esg_score_snapshot,ecosphere_core.group_user,1,0,0,0
+access_goal,goal,model_ecosphere_esg_goal,ecosphere_core.group_user,1,1,1,0
+access_configuration,configuration,model_ecosphere_esg_configuration,ecosphere_core.group_manager,1,1,1,1

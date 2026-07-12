@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_policy,policy,model_ecosphere_esg_policy,ecosphere_core.group_manager,1,1,1,1
+access_ack,ack,model_ecosphere_policy_acknowledgement,ecosphere_core.group_user,1,1,1,0
+access_audit,audit,model_ecosphere_esg_audit,ecosphere_core.group_auditor,1,1,1,0
+access_issue,issue,model_ecosphere_compliance_issue,ecosphere_core.group_manager,1,1,1,1
+access_risk,risk,model_ecosphere_risk_register,ecosphere_core.group_manager,1,1,1,1

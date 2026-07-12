@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_factor,factor,model_ecosphere_emission_factor,ecosphere_core.group_manager,1,1,1,1
+access_carbon,carbon,model_ecosphere_carbon_transaction,ecosphere_core.group_user,1,1,1,0
+access_profile,profile,model_ecosphere_product_esg_profile,ecosphere_core.group_manager,1,1,1,1

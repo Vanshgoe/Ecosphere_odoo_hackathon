@@ -1,0 +1,1 @@
+{"name":"EcoSphere Social","version":"18.0.1.0.0","license":"LGPL-3","depends":["ecosphere_core","hr"],"data":["security/ir.model.access.csv","security/rules.xml","data/cron.xml","views/views.xml"],"demo":["demo/demo.xml"],"installable":True}

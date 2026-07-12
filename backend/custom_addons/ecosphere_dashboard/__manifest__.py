@@ -1,0 +1,1 @@
+{"name":"EcoSphere Dashboard","version":"18.0.1.0.0","license":"LGPL-3","depends":["ecosphere_environment","ecosphere_social","ecosphere_governance","ecosphere_gamification"],"installable":True,"application":False}

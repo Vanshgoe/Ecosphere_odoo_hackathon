@@ -1,0 +1,1 @@
+{"name":"EcoSphere Environmental","version":"18.0.1.0.0","license":"LGPL-3","depends":["ecosphere_core","product"],"data":["security/ir.model.access.csv","security/rules.xml","views/views.xml"],"demo":["data/demo_factors.xml"],"installable":True}

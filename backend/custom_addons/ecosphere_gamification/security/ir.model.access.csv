@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_challenge,challenge,model_ecosphere_challenge,ecosphere_core.group_user,1,1,1,0
+access_cp,cp,model_ecosphere_challenge_participation,ecosphere_core.group_user,1,1,1,0
+access_badge,badge,model_ecosphere_badge,ecosphere_core.group_user,1,0,0,0
+access_eb,eb,model_ecosphere_employee_badge,ecosphere_core.group_user,1,0,0,0
+access_reward,reward,model_ecosphere_reward,ecosphere_core.group_user,1,0,0,0
+access_redemption,redemption,model_ecosphere_reward_redemption,ecosphere_core.group_user,1,1,1,0
+access_xp,xp,model_ecosphere_xp_ledger,ecosphere_core.group_user,1,0,1,0

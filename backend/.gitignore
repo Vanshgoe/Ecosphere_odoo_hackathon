@@ -1,0 +1,5 @@
+.env
+__pycache__/
+*.py[cod]
+third_party_addons/*
+!third_party_addons/.gitkeep

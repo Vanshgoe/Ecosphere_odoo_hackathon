@@ -1,0 +1,1 @@
+Run Odoo tests with: odoo -d ecosphere_test -i ecosphere_core,ecosphere_environment,ecosphere_social,ecosphere_governance,ecosphere_gamification,ecosphere_dashboard,ecosphere_reports --test-enable --stop-after-init

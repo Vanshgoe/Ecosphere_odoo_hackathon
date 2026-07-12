@@ -1,0 +1,1 @@
+{"name":"EcoSphere Reports","version":"18.0.1.0.0","license":"LGPL-3","depends":["ecosphere_dashboard","report_xlsx"],"data":["security/ir.model.access.csv","views/report_wizard.xml","report/esg_report.xml"],"installable":True}
