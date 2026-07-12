@@ -1,0 +1,58 @@
+<odoo>
+    <record id="paperformat_ecosphere_reports" model="report.paperformat">
+        <field name="name">EcoSphere Reports Paper Format</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">20</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">15</field>
+        <field name="margin_right">15</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">10</field>
+        <field name="dpi">110</field>
+    </record>
+
+    <record id="action_report_environmental_pdf" model="ir.actions.report">
+        <field name="name">Environmental Report</field>
+        <field name="model">ecosphere.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ecosphere_reports.report_environmental</field>
+        <field name="paperformat_id" ref="paperformat_ecosphere_reports"/>
+        <field name="binding_model_id" ref="model_ecosphere_report_wizard"/>
+    </record>
+
+    <record id="action_report_social_pdf" model="ir.actions.report">
+        <field name="name">Social Report</field>
+        <field name="model">ecosphere.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ecosphere_reports.report_social</field>
+        <field name="paperformat_id" ref="paperformat_ecosphere_reports"/>
+        <field name="binding_model_id" ref="model_ecosphere_report_wizard"/>
+    </record>
+
+    <record id="action_report_governance_pdf" model="ir.actions.report">
+        <field name="name">Governance Report</field>
+        <field name="model">ecosphere.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ecosphere_reports.report_governance</field>
+        <field name="paperformat_id" ref="paperformat_ecosphere_reports"/>
+        <field name="binding_model_id" ref="model_ecosphere_report_wizard"/>
+    </record>
+
+    <record id="action_report_esg_pdf" model="ir.actions.report">
+        <field name="name">ESG Summary Report</field>
+        <field name="model">ecosphere.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ecosphere_reports.report_esg_summary</field>
+        <field name="paperformat_id" ref="paperformat_ecosphere_reports"/>
+        <field name="binding_model_id" ref="model_ecosphere_report_wizard"/>
+    </record>
+
+    <record id="action_report_xlsx" model="ir.actions.report">
+        <field name="name">EcoSphere ESG XLSX Report</field>
+        <field name="model">ecosphere.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">ecosphere_reports.report_esg_summary_xlsx</field>
+        <field name="binding_model_id" ref="model_ecosphere_report_wizard"/>
+    </record>
+</odoo>

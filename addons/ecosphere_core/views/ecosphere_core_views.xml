@@ -1,0 +1,106 @@
+<odoo>
+    <record id="view_ecosphere_company_tree" model="ir.ui.view">
+        <field name="name">ecosphere.company.tree</field>
+        <field name="model">ecosphere.company</field>
+        <field name="arch" type="xml">
+            <tree string="Companies">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="sector"/>
+                <field name="sustainability_score"/>
+                <field name="target_score"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_company_form" model="ir.ui.view">
+        <field name="name">ecosphere.company.form</field>
+        <field name="model">ecosphere.company</field>
+        <field name="arch" type="xml">
+            <form string="Company">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="company_id"/>
+                        <field name="sector"/>
+                        <field name="website"/>
+                        <field name="total_employees"/>
+                    </group>
+                    <group>
+                        <field name="sustainability_score"/>
+                        <field name="target_score"/>
+                        <field name="score_status"/>
+                        <field name="state"/>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_metric_tree" model="ir.ui.view">
+        <field name="name">ecosphere.metric.tree</field>
+        <field name="model">ecosphere.metric</field>
+        <field name="arch" type="xml">
+            <tree string="Metrics">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="company_id"/>
+                <field name="category"/>
+                <field name="current_value"/>
+                <field name="target_value"/>
+                <field name="score"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_program_tree" model="ir.ui.view">
+        <field name="name">ecosphere.program.tree</field>
+        <field name="model">ecosphere.program</field>
+        <field name="arch" type="xml">
+            <tree string="Programs">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="company_id"/>
+                <field name="category"/>
+                <field name="status"/>
+                <field name="budget"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ecosphere_company" model="ir.actions.act_window">
+        <field name="name">Companies</field>
+        <field name="res_model">ecosphere.company</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_ecosphere_metric" model="ir.actions.act_window">
+        <field name="name">Metrics</field>
+        <field name="res_model">ecosphere.metric</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_ecosphere_program" model="ir.actions.act_window">
+        <field name="name">Programs</field>
+        <field name="res_model">ecosphere.program</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ecosphere_root" name="EcoSphere" sequence="10"/>
+    <menuitem id="menu_ecosphere_core" name="Core" parent="menu_ecosphere_root" sequence="10" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_company" name="Companies" parent="menu_ecosphere_core" action="action_ecosphere_company" sequence="10" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_metric" name="Metrics" parent="menu_ecosphere_core" action="action_ecosphere_metric" sequence="20" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_program" name="Programs" parent="menu_ecosphere_core" action="action_ecosphere_program" sequence="30" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+</odoo>

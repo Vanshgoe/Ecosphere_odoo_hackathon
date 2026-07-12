@@ -1,0 +1,7 @@
+<odoo>
+    <record id="demo_badge_1" model="ecosphere.badge">
+        <field name="name">Green Champion</field>
+        <field name="company_id" ref="ecosphere_core.demo_company_1"/>
+        <field name="points">100</field>
+    </record>
+</odoo>

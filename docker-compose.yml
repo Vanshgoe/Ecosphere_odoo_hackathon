@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16
+    container_name: ecosphere_pg
+    environment:
+      POSTGRES_DB: odoo
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  odoo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecosphere_odoo
+    depends_on:
+      - db
+    environment:
+      HOST: db
+      PORT: 5432
+      USER: odoo
+      PASSWORD: odoo
+    volumes:
+      - .:/mnt/extra-addons
+      - ./odoo.conf:/etc/odoo/odoo.conf
+      - odoo_data:/var/lib/odoo
+    ports:
+      - "8069:8069"
+    command: ["odoo", "--config", "/etc/odoo/odoo.conf"]
+
+volumes:
+  pgdata:
+  odoo_data:

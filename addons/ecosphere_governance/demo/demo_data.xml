@@ -1,0 +1,9 @@
+<odoo>
+    <record id="demo_policy_1" model="ecosphere.policy">
+        <field name="name">Code of Ethics</field>
+        <field name="company_id" ref="ecosphere_core.demo_company_1"/>
+        <field name="policy_type">ethics</field>
+        <field name="effective_date">2026-01-01</field>
+        <field name="status">active</field>
+    </record>
+</odoo>

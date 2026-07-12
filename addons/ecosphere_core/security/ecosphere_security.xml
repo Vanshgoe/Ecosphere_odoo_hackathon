@@ -1,0 +1,81 @@
+<odoo>
+    <record id="module_category_esg" model="ir.module.category">
+        <field name="name">EcoSphere ESG</field>
+        <field name="description">User access levels for EcoSphere ESG modules</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="group_ecosphere_administrator" model="res.groups">
+        <field name="name">ESG Administrator</field>
+        <field name="category_id" ref="module_category_esg"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_ecosphere_manager" model="res.groups">
+        <field name="name">ESG Manager</field>
+        <field name="category_id" ref="module_category_esg"/>
+        <field name="implied_ids" eval="[(4, ref('group_ecosphere_administrator'))]"/>
+    </record>
+
+    <record id="group_ecosphere_department_manager" model="res.groups">
+        <field name="name">Department Manager</field>
+        <field name="category_id" ref="module_category_esg"/>
+        <field name="implied_ids" eval="[(4, ref('group_ecosphere_manager'))]"/>
+    </record>
+
+    <record id="group_ecosphere_auditor" model="res.groups">
+        <field name="name">ESG Auditor</field>
+        <field name="category_id" ref="module_category_esg"/>
+        <field name="implied_ids" eval="[(4, ref('group_ecosphere_administrator'))]"/>
+    </record>
+
+    <record id="group_ecosphere_employee" model="res.groups">
+        <field name="name">Employee</field>
+        <field name="category_id" ref="module_category_esg"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="rule_company_read_all" model="ir.rule">
+        <field name="name">Company read access for ESG users</field>
+        <field name="model_id" ref="model_ecosphere_company"/>
+        <field name="groups" eval="[(4, ref('group_ecosphere_employee')),(4, ref('group_ecosphere_department_manager')),(4, ref('group_ecosphere_manager')),(4, ref('group_ecosphere_auditor')),(4, ref('group_ecosphere_administrator'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read">True</field>
+        <field name="perm_write">False</field>
+        <field name="perm_create">False</field>
+        <field name="perm_unlink">False</field>
+    </record>
+
+    <record id="rule_company_write_manager" model="ir.rule">
+        <field name="name">Company write access for managers</field>
+        <field name="model_id" ref="model_ecosphere_company"/>
+        <field name="groups" eval="[(4, ref('group_ecosphere_manager')),(4, ref('group_ecosphere_administrator'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_unlink">False</field>
+    </record>
+
+    <record id="rule_metric_company_scope" model="ir.rule">
+        <field name="name">Metric access by company</field>
+        <field name="model_id" ref="model_ecosphere_metric"/>
+        <field name="groups" eval="[(4, ref('group_ecosphere_employee')),(4, ref('group_ecosphere_department_manager')),(4, ref('group_ecosphere_manager')),(4, ref('group_ecosphere_auditor')),(4, ref('group_ecosphere_administrator'))]"/>
+        <field name="domain_force">['|', ('company_id','=',False), ('company_id','in', user.company_ids.mapped('id'))]</field>
+        <field name="perm_read">True</field>
+        <field name="perm_write">False</field>
+        <field name="perm_create">False</field>
+        <field name="perm_unlink">False</field>
+    </record>
+
+    <record id="rule_metric_manager_write" model="ir.rule">
+        <field name="name">Metric write access for managers</field>
+        <field name="model_id" ref="model_ecosphere_metric"/>
+        <field name="groups" eval="[(4, ref('group_ecosphere_manager')),(4, ref('group_ecosphere_administrator'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_unlink">False</field>
+    </record>
+</odoo>

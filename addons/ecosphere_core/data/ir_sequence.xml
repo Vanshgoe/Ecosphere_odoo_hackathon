@@ -1,0 +1,9 @@
+<odoo noupdate="1">
+    <record id="seq_ecosphere_company" model="ir.sequence">
+        <field name="name">EcoSphere Company Sequence</field>
+        <field name="code">ecosphere.company</field>
+        <field name="prefix">CMP/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

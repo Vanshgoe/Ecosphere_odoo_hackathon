@@ -1,0 +1,21 @@
+<odoo>
+    <record id="demo_emission_1" model="ecosphere.emission">
+        <field name="name">Factory Emission Q2</field>
+        <field name="company_id" ref="ecosphere_core.demo_company_1"/>
+        <field name="date">2026-06-30</field>
+        <field name="emission_type">scope1</field>
+        <field name="quantity">125.5</field>
+        <field name="state">submitted</field>
+    </record>
+
+    <record id="demo_emission_factor_1" model="ecosphere.emission.factor">
+        <field name="name">Grid Electricity Factor</field>
+        <field name="source">IPCC 2022</field>
+        <field name="category">energy</field>
+        <field name="unit">kgCO2e/kWh</field>
+        <field name="emission_factor">0.42</field>
+        <field name="status">active</field>
+        <field name="company_id" ref="ecosphere_core.demo_company_1"/>
+        <field name="description">Standard emission factor for electricity consumption.</field>
+    </record>
+</odoo>

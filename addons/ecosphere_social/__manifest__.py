@@ -1,0 +1,20 @@
+{
+    'name': 'EcoSphere Social',
+    'version': '18.0.1.0.0',
+    'summary': 'Social impact and employee wellbeing management',
+    'category': 'ESG',
+    'author': 'EcoSphere Team',
+    'depends': ['ecosphere_core', 'mail'],
+    'data': [
+        'security/ecosphere_social_security.xml',
+        'security/ir.model.access.csv',
+        'data/ir_cron.xml',
+        'data/mail_template.xml',
+        'views/ecosphere_social_views.xml',
+        'report/social_report.xml',
+        'demo/demo_data.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'license': 'LGPL-3',
+}

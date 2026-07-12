@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_ecosphere_dashboard_tree" model="ir.ui.view">
+        <field name="name">ecosphere.dashboard.tree</field>
+        <field name="model">ecosphere.dashboard</field>
+        <field name="arch" type="xml">
+            <tree string="Dashboards">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="total_metrics"/>
+                <field name="total_emissions"/>
+                <field name="average_score"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ecosphere_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">ecosphere.dashboard</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_ecosphere_dashboard_page" model="ir.actions.act_url">
+        <field name="name">EcoSphere OWL Dashboard</field>
+        <field name="url">/ecosphere/dashboard</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_ecosphere_dashboard" name="Dashboard" parent="ecosphere_core.menu_ecosphere_root" action="action_ecosphere_dashboard_page" sequence="60" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+</odoo>

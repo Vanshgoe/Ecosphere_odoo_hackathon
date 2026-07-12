@@ -1,0 +1,8 @@
+<odoo>
+    <record id="demo_worker_1" model="ecosphere.worker">
+        <field name="name">Alicia Singh</field>
+        <field name="company_id" ref="ecosphere_core.demo_company_1"/>
+        <field name="role">HR Lead</field>
+        <field name="engagement_score">88.0</field>
+    </record>
+</odoo>

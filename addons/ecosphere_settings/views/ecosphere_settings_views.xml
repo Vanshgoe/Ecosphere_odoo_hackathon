@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_ecosphere_config_form" model="ir.ui.view">
+        <field name="name">ecosphere.config.form</field>
+        <field name="model">ecosphere.config</field>
+        <field name="arch" type="xml">
+            <form string="Configuration">
+                <sheet>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="default_reporting_period"/>
+                        <field name="auto_send_reports"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ecosphere_config" model="ir.actions.act_window">
+        <field name="name">Configuration</field>
+        <field name="res_model">ecosphere.config</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem id="menu_ecosphere_settings" name="Settings" parent="ecosphere_core.menu_ecosphere_root" action="action_ecosphere_config" sequence="70"/>
+</odoo>

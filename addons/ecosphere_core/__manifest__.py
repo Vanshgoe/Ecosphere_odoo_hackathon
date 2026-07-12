@@ -1,0 +1,23 @@
+{
+    'name': 'EcoSphere Core',
+    'version': '18.0.1.0.0',
+    'summary': 'Core ESG management models and workflows for EcoSphere',
+    'category': 'ESG',
+    'author': 'EcoSphere Team',
+    'depends': ['base', 'mail', 'web'],
+    'data': [
+        'security/ecosphere_core_security.xml',
+        'security/ecosphere_security.xml',
+        'security/ir.model.access.csv',
+        'data/ir_sequence.xml',
+        'data/ir_cron.xml',
+        'data/mail_template.xml',
+        'views/ecosphere_core_views.xml',
+        'demo/demo_data.xml',
+    ],
+    'demo': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}

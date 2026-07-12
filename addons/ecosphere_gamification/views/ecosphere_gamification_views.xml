@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_ecosphere_badge_tree" model="ir.ui.view">
+        <field name="name">ecosphere.badge.tree</field>
+        <field name="model">ecosphere.badge</field>
+        <field name="arch" type="xml">
+            <tree string="Badges">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="points"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_challenge_tree" model="ir.ui.view">
+        <field name="name">ecosphere.challenge.tree</field>
+        <field name="model">ecosphere.challenge</field>
+        <field name="arch" type="xml">
+            <tree string="Challenges">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="points"/>
+                <field name="deadline"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ecosphere_badge" model="ir.actions.act_window">
+        <field name="name">Badges</field>
+        <field name="res_model">ecosphere.badge</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_ecosphere_challenge" model="ir.actions.act_window">
+        <field name="name">Challenges</field>
+        <field name="res_model">ecosphere.challenge</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ecosphere_gamification" name="Gamification" parent="ecosphere_core.menu_ecosphere_root" sequence="50"/>
+    <menuitem id="menu_ecosphere_badge" name="Badges" parent="menu_ecosphere_gamification" action="action_ecosphere_badge" sequence="10"/>
+    <menuitem id="menu_ecosphere_challenge" name="Challenges" parent="menu_ecosphere_gamification" action="action_ecosphere_challenge" sequence="20"/>
+</odoo>

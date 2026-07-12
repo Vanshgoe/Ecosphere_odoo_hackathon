@@ -1,0 +1,12 @@
+<odoo noupdate="1">
+    <record id="cron_recompute_company_scores" model="ir.cron">
+        <field name="name">Recompute EcoSphere Company Scores</field>
+        <field name="model_id" ref="model_ecosphere_company"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_recompute_scores()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall">False</field>
+    </record>
+</odoo>

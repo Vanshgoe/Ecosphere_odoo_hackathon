@@ -1,0 +1,36 @@
+<odoo>
+    <template id="dashboard_page" name="EcoSphere Dashboard Page">
+        <t t-call="web.frontend_layout">
+            <div class="ecosphere-dashboard-shell">
+                <h2>EcoSphere OWL Dashboard</h2>
+                <p>Live ESG overview for <t t-esc="company_name"/></p>
+                <div class="ecosphere-dashboard-grid">
+                    <div class="ecosphere-card">
+                        <h4>Environmental Score</h4>
+                        <div id="environmental-score-chart" class="ecosphere-chart"/>
+                    </div>
+                    <div class="ecosphere-card">
+                        <h4>Social Score</h4>
+                        <div id="social-score-chart" class="ecosphere-chart"/>
+                    </div>
+                    <div class="ecosphere-card">
+                        <h4>Governance Score</h4>
+                        <div id="governance-score-chart" class="ecosphere-chart"/>
+                    </div>
+                    <div class="ecosphere-card ecosphere-wide">
+                        <h4>Department Ranking</h4>
+                        <div id="department-ranking-chart" class="ecosphere-chart"/>
+                    </div>
+                    <div class="ecosphere-card">
+                        <h4>Leaderboard</h4>
+                        <div id="leaderboard-chart" class="ecosphere-chart"/>
+                    </div>
+                    <div class="ecosphere-card">
+                        <h4>Carbon Trend</h4>
+                        <div id="carbon-trend-chart" class="ecosphere-chart"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

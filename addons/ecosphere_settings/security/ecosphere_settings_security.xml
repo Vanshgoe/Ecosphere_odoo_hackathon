@@ -1,0 +1,6 @@
+<odoo>
+    <record id="group_ecosphere_settings_user" model="res.groups">
+        <field name="name">EcoSphere Settings User</field>
+        <field name="category_id" ref="base.module_category_operations"/>
+    </record>
+</odoo>

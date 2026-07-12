@@ -1,0 +1,132 @@
+<odoo>
+    <record id="view_ecosphere_emission_tree" model="ir.ui.view">
+        <field name="name">ecosphere.emission.tree</field>
+        <field name="model">ecosphere.emission</field>
+        <field name="arch" type="xml">
+            <tree string="Emissions">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="date"/>
+                <field name="emission_type"/>
+                <field name="quantity"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_emission_form" model="ir.ui.view">
+        <field name="name">ecosphere.emission.form</field>
+        <field name="model">ecosphere.emission</field>
+        <field name="arch" type="xml">
+            <form string="Emission">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id"/>
+                        <field name="date"/>
+                        <field name="emission_type"/>
+                        <field name="quantity"/>
+                        <field name="unit"/>
+                        <field name="state"/>
+                    </group>
+                    <field name="description"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_emission_factor_tree" model="ir.ui.view">
+        <field name="name">ecosphere.emission.factor.tree</field>
+        <field name="model">ecosphere.emission.factor</field>
+        <field name="arch" type="xml">
+            <tree string="Emission Factors">
+                <field name="name"/>
+                <field name="source"/>
+                <field name="category"/>
+                <field name="unit"/>
+                <field name="emission_factor"/>
+                <field name="status"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_emission_factor_form" model="ir.ui.view">
+        <field name="name">ecosphere.emission.factor.form</field>
+        <field name="model">ecosphere.emission.factor</field>
+        <field name="arch" type="xml">
+            <form string="Emission Factor">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary"/>
+                    <button name="action_inactivate" type="object" string="Deactivate"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="source"/>
+                        <field name="category"/>
+                        <field name="unit"/>
+                        <field name="emission_factor"/>
+                        <field name="emission_factor_value"/>
+                        <field name="factor_band"/>
+                        <field name="company_id"/>
+                        <field name="active"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_emission_factor_search" model="ir.ui.view">
+        <field name="name">ecosphere.emission.factor.search</field>
+        <field name="model">ecosphere.emission.factor</field>
+        <field name="arch" type="xml">
+            <search string="Search Emission Factors">
+                <field name="name"/>
+                <field name="source"/>
+                <field name="category"/>
+                <field name="company_id"/>
+                <field name="status"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Inactive" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Category" name="group_category" context="{'group_by': 'category'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                    <filter string="Organization" name="group_company" context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ecosphere_emission" model="ir.actions.act_window">
+        <field name="name">Emissions</field>
+        <field name="res_model">ecosphere.emission</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_ecosphere_resource" model="ir.actions.act_window">
+        <field name="name">Resources</field>
+        <field name="res_model">ecosphere.resource</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_ecosphere_emission_factor" model="ir.actions.act_window">
+        <field name="name">Emission Factors</field>
+        <field name="res_model">ecosphere.emission.factor</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+    <menuitem id="menu_ecosphere_environment" name="Environment" parent="ecosphere_core.menu_ecosphere_root" sequence="20" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_emission" name="Emissions" parent="menu_ecosphere_environment" action="action_ecosphere_emission" sequence="10" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_resource" name="Resources" parent="menu_ecosphere_environment" action="action_ecosphere_resource" sequence="20" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_emission_factor" name="Emission Factors" parent="menu_ecosphere_environment" action="action_ecosphere_emission_factor" sequence="30" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+</odoo>

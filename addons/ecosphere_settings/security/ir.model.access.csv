@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ecosphere_config_user,access.ecosphere.config.user,model_ecosphere_config,group_ecosphere_settings_user,1,1,1,0

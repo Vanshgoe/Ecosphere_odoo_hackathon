@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ecosphere_company_admin,access.ecosphere.company.admin,model_ecosphere_company,group_ecosphere_administrator,1,1,1,1
+access_ecosphere_company_manager,access.ecosphere.company.manager,model_ecosphere_company,group_ecosphere_manager,1,1,1,0
+access_ecosphere_company_department,access.ecosphere.company.department,model_ecosphere_company,group_ecosphere_department_manager,1,1,0,0
+access_ecosphere_company_auditor,access.ecosphere.company.auditor,model_ecosphere_company,group_ecosphere_auditor,1,0,0,0
+access_ecosphere_company_employee,access.ecosphere.company.employee,model_ecosphere_company,group_ecosphere_employee,1,0,0,0
+access_ecosphere_metric_admin,access.ecosphere.metric.admin,model_ecosphere_metric,group_ecosphere_administrator,1,1,1,1
+access_ecosphere_metric_manager,access.ecosphere.metric.manager,model_ecosphere_metric,group_ecosphere_manager,1,1,1,0
+access_ecosphere_metric_department,access.ecosphere.metric.department,model_ecosphere_metric,group_ecosphere_department_manager,1,1,0,0
+access_ecosphere_metric_auditor,access.ecosphere.metric.auditor,model_ecosphere_metric,group_ecosphere_auditor,1,0,0,0
+access_ecosphere_metric_employee,access.ecosphere.metric.employee,model_ecosphere_metric,group_ecosphere_employee,1,0,0,0
+access_ecosphere_program_admin,access.ecosphere.program.admin,model_ecosphere_program,group_ecosphere_administrator,1,1,1,1
+access_ecosphere_program_manager,access.ecosphere.program.manager,model_ecosphere_program,group_ecosphere_manager,1,1,1,0
+access_ecosphere_program_department,access.ecosphere.program.department,model_ecosphere_program,group_ecosphere_department_manager,1,1,0,0
+access_ecosphere_program_auditor,access.ecosphere.program.auditor,model_ecosphere_program,group_ecosphere_auditor,1,0,0,0
+access_ecosphere_program_employee,access.ecosphere.program.employee,model_ecosphere_program,group_ecosphere_employee,1,0,0,0

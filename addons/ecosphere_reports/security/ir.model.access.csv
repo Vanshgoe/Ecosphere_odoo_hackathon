@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ecosphere_report_wizard_admin,access.ecosphere.report.wizard.admin,model_ecosphere_report_wizard,group_ecosphere_administrator,1,1,1,0
+access_ecosphere_report_wizard_manager,access.ecosphere.report.wizard.manager,model_ecosphere_report_wizard,group_ecosphere_manager,1,1,1,0
+access_ecosphere_report_wizard_department,access.ecosphere.report.wizard.department,model_ecosphere_report_wizard,group_ecosphere_department_manager,1,1,0,0
+access_ecosphere_report_wizard_auditor,access.ecosphere.report.wizard.auditor,model_ecosphere_report_wizard,group_ecosphere_auditor,1,0,0,0
+access_ecosphere_report_wizard_employee,access.ecosphere.report.wizard.employee,model_ecosphere_report_wizard,group_ecosphere_employee,1,0,0,0

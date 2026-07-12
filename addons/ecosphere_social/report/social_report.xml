@@ -1,0 +1,21 @@
+<odoo>
+    <record id="report_social_initiative" model="ir.actions.report">
+        <field name="name">Social Initiative Report</field>
+        <field name="model">ecosphere.initiative</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ecosphere_social.report_social_initiative_template</field>
+    </record>
+
+    <template id="report_social_initiative_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h2>Social Initiative Report</h2>
+                    <p><strong>Name:</strong> <t t-esc="doc.name"/></p>
+                    <p><strong>Company:</strong> <t t-esc="doc.company_id.name"/></p>
+                    <p><strong>Impact Score:</strong> <t t-esc="doc.impact_score"/></p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

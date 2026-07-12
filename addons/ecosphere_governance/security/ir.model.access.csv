@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ecosphere_policy_admin,access.ecosphere.policy.admin,model_ecosphere_policy,group_ecosphere_administrator,1,1,1,1
+access_ecosphere_policy_manager,access.ecosphere.policy.manager,model_ecosphere_policy,group_ecosphere_manager,1,1,1,0
+access_ecosphere_policy_department,access.ecosphere.policy.department,model_ecosphere_policy,group_ecosphere_department_manager,1,1,0,0
+access_ecosphere_policy_auditor,access.ecosphere.policy.auditor,model_ecosphere_policy,group_ecosphere_auditor,1,0,0,0
+access_ecosphere_policy_employee,access.ecosphere.policy.employee,model_ecosphere_policy,group_ecosphere_employee,1,0,0,0
+access_ecosphere_compliance_admin,access.ecosphere.compliance.admin,model_ecosphere_compliance,group_ecosphere_administrator,1,1,1,1
+access_ecosphere_compliance_manager,access.ecosphere.compliance.manager,model_ecosphere_compliance,group_ecosphere_manager,1,1,1,0
+access_ecosphere_compliance_department,access.ecosphere.compliance.department,model_ecosphere_compliance,group_ecosphere_department_manager,1,1,0,0
+access_ecosphere_compliance_auditor,access.ecosphere.compliance.auditor,model_ecosphere_compliance,group_ecosphere_auditor,1,0,0,0
+access_ecosphere_compliance_employee,access.ecosphere.compliance.employee,model_ecosphere_compliance,group_ecosphere_employee,1,0,0,0

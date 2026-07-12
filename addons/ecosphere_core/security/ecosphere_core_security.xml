@@ -1,0 +1,7 @@
+<odoo>
+    <record id="group_ecosphere_user" model="res.groups">
+        <field name="name">EcoSphere User</field>
+        <field name="category_id" ref="module_category_esg"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

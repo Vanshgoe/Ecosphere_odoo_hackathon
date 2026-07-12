@@ -1,0 +1,44 @@
+<odoo>
+    <record id="view_ecosphere_policy_tree" model="ir.ui.view">
+        <field name="name">ecosphere.policy.tree</field>
+        <field name="model">ecosphere.policy</field>
+        <field name="arch" type="xml">
+            <tree string="Policies">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="policy_type"/>
+                <field name="effective_date"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_compliance_tree" model="ir.ui.view">
+        <field name="name">ecosphere.compliance.tree</field>
+        <field name="model">ecosphere.compliance</field>
+        <field name="arch" type="xml">
+            <tree string="Compliance">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="due_date"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ecosphere_policy" model="ir.actions.act_window">
+        <field name="name">Policies</field>
+        <field name="res_model">ecosphere.policy</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_ecosphere_compliance" model="ir.actions.act_window">
+        <field name="name">Compliance</field>
+        <field name="res_model">ecosphere.compliance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ecosphere_governance" name="Governance" parent="ecosphere_core.menu_ecosphere_root" sequence="40" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_policy" name="Policies" parent="menu_ecosphere_governance" action="action_ecosphere_policy" sequence="10" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_compliance" name="Compliance" parent="menu_ecosphere_governance" action="action_ecosphere_compliance" sequence="20" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+</odoo>

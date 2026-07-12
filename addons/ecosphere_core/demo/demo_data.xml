@@ -1,0 +1,20 @@
+<odoo>
+    <record id="demo_company_1" model="ecosphere.company">
+        <field name="name">GreenTech Industries</field>
+        <field name="code">GTI</field>
+        <field name="sector">technology</field>
+        <field name="sustainability_score">78.5</field>
+        <field name="target_score">80.0</field>
+        <field name="state">active</field>
+    </record>
+    <record id="demo_metric_1" model="ecosphere.metric">
+        <field name="name">Carbon Emissions</field>
+        <field name="code">CO2</field>
+        <field name="company_id" ref="demo_company_1"/>
+        <field name="category">environment</field>
+        <field name="unit">tCO2e</field>
+        <field name="target_value">1000</field>
+        <field name="current_value">850</field>
+        <field name="state">in_progress</field>
+    </record>
+</odoo>

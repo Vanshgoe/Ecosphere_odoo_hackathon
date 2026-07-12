@@ -1,0 +1,212 @@
+<odoo>
+    <record id="view_ecosphere_worker_search" model="ir.ui.view">
+        <field name="name">ecosphere.worker.search</field>
+        <field name="model">ecosphere.worker</field>
+        <field name="arch" type="xml">
+            <search string="Workers">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="role"/>
+                <filter string="Active" name="active" domain="[('active','=',True)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_worker_tree" model="ir.ui.view">
+        <field name="name">ecosphere.worker.tree</field>
+        <field name="model">ecosphere.worker</field>
+        <field name="arch" type="xml">
+            <tree string="Workers">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="role"/>
+                <field name="engagement_score"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_worker_form" model="ir.ui.view">
+        <field name="name">ecosphere.worker.form</field>
+        <field name="model">ecosphere.worker</field>
+        <field name="arch" type="xml">
+            <form string="Worker">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id"/>
+                        <field name="role"/>
+                        <field name="engagement_score"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_worker_kanban" model="ir.ui.view">
+        <field name="name">ecosphere.worker.kanban</field>
+        <field name="model">ecosphere.worker</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="role"/>
+                <field name="engagement_score"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong>
+                            <div><field name="role"/></div>
+                            <div>Engagement: <field name="engagement_score"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_worker_graph" model="ir.ui.view">
+        <field name="name">ecosphere.worker.graph</field>
+        <field name="model">ecosphere.worker</field>
+        <field name="arch" type="xml">
+            <graph string="Worker Engagement" type="bar">
+                <field name="company_id" type="row"/>
+                <field name="engagement_score" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_worker_pivot" model="ir.ui.view">
+        <field name="name">ecosphere.worker.pivot</field>
+        <field name="model">ecosphere.worker</field>
+        <field name="arch" type="xml">
+            <pivot string="Worker Summary">
+                <field name="company_id" type="row"/>
+                <field name="role" type="col"/>
+                <field name="engagement_score" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_initiative_search" model="ir.ui.view">
+        <field name="name">ecosphere.initiative.search</field>
+        <field name="model">ecosphere.initiative</field>
+        <field name="arch" type="xml">
+            <search string="Initiatives">
+                <field name="name"/>
+                <field name="company_id"/>
+                <filter string="Active" name="active" domain="[('active','=',True)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_initiative_tree" model="ir.ui.view">
+        <field name="name">ecosphere.initiative.tree</field>
+        <field name="model">ecosphere.initiative</field>
+        <field name="arch" type="xml">
+            <tree string="Initiatives">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="impact_score"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_initiative_form" model="ir.ui.view">
+        <field name="name">ecosphere.initiative.form</field>
+        <field name="model">ecosphere.initiative</field>
+        <field name="arch" type="xml">
+            <form string="Initiative">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="impact_score"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_initiative_kanban" model="ir.ui.view">
+        <field name="name">ecosphere.initiative.kanban</field>
+        <field name="model">ecosphere.initiative</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="impact_score"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong>
+                            <div>Impact: <field name="impact_score"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_initiative_graph" model="ir.ui.view">
+        <field name="name">ecosphere.initiative.graph</field>
+        <field name="model">ecosphere.initiative</field>
+        <field name="arch" type="xml">
+            <graph string="Initiative Impact" type="bar">
+                <field name="company_id" type="row"/>
+                <field name="impact_score" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_ecosphere_initiative_pivot" model="ir.ui.view">
+        <field name="name">ecosphere.initiative.pivot</field>
+        <field name="model">ecosphere.initiative</field>
+        <field name="arch" type="xml">
+            <pivot string="Initiative Summary">
+                <field name="company_id" type="row"/>
+                <field name="start_date" type="col"/>
+                <field name="impact_score" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_ecosphere_worker" model="ir.actions.act_window">
+        <field name="name">Workers</field>
+        <field name="res_model">ecosphere.worker</field>
+        <field name="view_mode">tree,form,kanban,graph,pivot</field>
+        <field name="search_view_id" ref="view_ecosphere_worker_search"/>
+    </record>
+
+    <record id="action_ecosphere_initiative" model="ir.actions.act_window">
+        <field name="name">Initiatives</field>
+        <field name="res_model">ecosphere.initiative</field>
+        <field name="view_mode">tree,form,kanban,graph,pivot</field>
+        <field name="search_view_id" ref="view_ecosphere_initiative_search"/>
+    </record>
+
+    <menuitem id="menu_ecosphere_social" name="Social" parent="ecosphere_core.menu_ecosphere_root" sequence="30" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_worker" name="Workers" parent="menu_ecosphere_social" action="action_ecosphere_worker" sequence="10" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_initiative" name="Initiatives" parent="menu_ecosphere_social" action="action_ecosphere_initiative" sequence="20" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+</odoo>

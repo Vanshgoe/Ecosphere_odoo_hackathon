@@ -1,0 +1,11 @@
+<odoo>
+    <record id="mail_template_esg_update" model="mail.template">
+        <field name="name">EcoSphere ESG Update</field>
+        <field name="model_id" ref="model_ecosphere_company"/>
+        <field name="subject">EcoSphere ESG Update for ${object.name}</field>
+        <field name="body_html"><![CDATA[
+            <p>Hello,</p>
+            <p>The latest ESG score for <t t-out="object.name"/> is <t t-out="object.sustainability_score"/>.</p>
+        ]]></field>
+    </record>
+</odoo>

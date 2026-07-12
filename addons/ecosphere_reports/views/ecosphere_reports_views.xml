@@ -1,0 +1,34 @@
+<odoo>
+    <record id="view_ecosphere_report_wizard_form" model="ir.ui.view">
+        <field name="name">ecosphere.report.wizard.form</field>
+        <field name="model">ecosphere.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="ESG Reports">
+                <sheet>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="report_type"/>
+                        <field name="department"/>
+                        <field name="employee_id"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Generate Report" name="action_generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ecosphere_report_wizard" model="ir.actions.act_window">
+        <field name="name">ESG Reports</field>
+        <field name="res_model">ecosphere.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_ecosphere_reports_root" name="ESG Reports" parent="ecosphere_core.menu_ecosphere_root" sequence="40" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+    <menuitem id="menu_ecosphere_report_wizard" name="Generate Reports" parent="menu_ecosphere_reports_root" action="action_ecosphere_report_wizard" sequence="10" groups="group_ecosphere_administrator,group_ecosphere_manager,group_ecosphere_department_manager,group_ecosphere_auditor,group_ecosphere_employee"/>
+</odoo>
